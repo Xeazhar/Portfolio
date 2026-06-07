@@ -1,5 +1,5 @@
 "use client";
-import { ChevronDown, ChevronDownIcon } from "lucide-react";
+import { ChevronDown, ChevronDownIcon, Sparkles } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import {codeExamples} from "../data/CodeExamples";
@@ -49,8 +49,36 @@ const currentFloatingCard = floatingCards[activeTab];
         <div className="absolute bottom-20 right-4 sm:right-10 w-64 sm:w-96 h-64 sm:h-96 bg-cyan-500/10 rounded-full filter blur-3xl animate-pulse delay-1000" />
           
 
-        <div>
-          <div>
+        <div className="max-w-7xl mx-auto text-center relative w-full">
+          <div className="max-w-7xl mx-auto flex flex-col lg:grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center relative">
+            <div>
+              {/* <div className="inline-flex items-center space-x-2 px-3 sm:px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full mb-4 sm:mb-6 animate-in slide-in-from-bottom duration-700">
+                <Sparkles className="w-4 h-4 text-blue-400"/>
+                <span className="text-xs sm:text-sm text-blue-300">
+                  // Hello world !! Welcome to my Portfolio
+                  </span>
+              </div> */}
+              <h1 className="text-5xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 sm:mb-6 animate-in slide-in-from-bottom duration-700 delay-100 leading-tight">
+                <span className="bg-gradient-to-r from-white via-blue-100 to-cyan-100 bg-clip-text text-transparent block mb-1 sm:mb-2">
+                  My Name is 
+                  </span>
+                <span className="bg-gradient-to-b from-blue-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent block mb-1 sm:mb-2">
+                  Jazper Bustria
+                  </span>
+              </h1>
+
+              <p className="text-md sm:text-base lg:text-lg text-gray-400 max-w-2xl mx-auto lg:mx-0 mb-6 sm:mb-8 animate-in slide-in-from-bottom duration-700 delay-200 leading-relaxed">
+                I am learning this shit and I don't understand What I'm doing lol.
+              </p>
+
+                <div>
+                  <button>
+                    <span>github</span>
+
+                  </button>
+                </div>
+
+            </div>
 
          
 
@@ -58,7 +86,7 @@ const currentFloatingCard = floatingCards[activeTab];
           {/*This is the card that has the coding effect card*/}
         <div className="relative order-2 w-full">
           <div className="relative bg-white/5 backdrop-blur-xl rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-2xl border border-white/10">
-            <div className="bg-gradient-to-br from-gray-900/20 to-gray-800/20 backdrop-blur-sm rounded-lg overflow-hidden h-[280px] sm:w-[350px] lg:h-[450px] border border-white/5">
+            <div className="bg-gradient-to-br from-gray-900/20 to-gray-800/20 backdrop-blur-sm rounded-lg overflow-hidden min-h-[280px] sm:min-h-[350px] lg:min-h-[450px] border border-white/5">
               {/* IDE HEADER*/}
               <div className="flex items-center justify-between px-3 sm:px-4 py-2 sm:py-3 bg-white/5 backdrop-blur border-b border-white/10">
                 <div className="flex items-center sm:space-x-2">
@@ -111,15 +139,18 @@ const currentFloatingCard = floatingCards[activeTab];
                       language={getLanguageForTab(activeTab)} 
                       style={nightOwl} 
                       customStyle={{
-                        margin:0, borderRadius: "8px",
-                        fontSize:"11", lineHeight: "1.4",
-                        height: "100%",
+                        margin: 0,
+                        borderRadius: "8px",
+                        fontSize: "11px",
+                        lineHeight: "1.4",
                         border: "1px solid #3c3c3c",
+                        whiteSpace: "pre-wrap",
+                        wordBreak: "break-word",
                       }}
                      
                      >
                         {codeExamples[activeTab as keyof typeof codeExamples]}
-                      </SyntaxHighlighter>            
+                      </SyntaxHighlighter>
                   </div>
                 </div>
               </div>
