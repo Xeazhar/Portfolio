@@ -126,7 +126,7 @@ const currentFloatingCard = floatingCards[activeTab];
               {/*Floating Cards */}
 
               <div 
-              className = {`hidden lg:block absolute bottom-4 right-4 transform translate-x-8 translate-y-8 w-35 ${floatingCards[activeTab].bgColor} backdrop-blur-xl rounded-lg p-4 border-white/20 shadow-2xl`}
+              className = {`hidden lg:block absolute bottom-4 right-4 transform translate-x-8 translate-y-8 w-35 ${floatingCards[activeTab].bgColor} backdrop-blur-xl rounded-lg p-4 border border-white/20 shadow-2xl`}
               >
                 <div className="flex items-center space-x-2 mb-2">
                   <div className={`w-6 h-6 ${currentFloatingCard.iconColor} flex items-center justify-center text-sm font-bold`}
