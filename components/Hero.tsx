@@ -5,7 +5,6 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import {codeExamples} from "../data/CodeExamples";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { CanvasTextEffect } from "../ui_block/TextEffect"
-import { EncryptedTextIntro } from "../ui_block/TextEffect"
 
 export default function Hero() {
   type TabKey = "README.md" | "Skills.js" | "Config.json";
@@ -46,7 +45,12 @@ export default function Hero() {
               </h1>
 
               <div className="text-md sm:text-base lg:text-lg text-zinc-400 max-w-2xl mx-auto lg:mx-0 mb-6 sm:mb-8 animate-in slide-in-from-bottom duration-700 delay-200 leading-relaxed">
-                <EncryptedTextIntro/>
+                <div className="mx-auto flex max-w-lg items-center justify-center">
+                      <p className="text-left">
+                        I learned how useful tailwind is XD.
+                        Honestly this shit is so cool.
+                      </p>
+                    </div>
               </div>
              
             </div>

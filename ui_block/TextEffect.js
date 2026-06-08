@@ -1,7 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { CanvasText } from "@/components/ui/canvas-text";
-import { EncryptedText } from "@/components/ui/encrypted-text";
 import React from "react";
 
 export function CanvasTextEffect() {
@@ -34,14 +33,5 @@ export function CanvasTextEffect() {
   );
 }
 
-export function EncryptedTextIntro() {
-  return (
-    <div className="mx-auto flex max-w-lg items-center justify-center">
-      <p className="text-left">
-        I learned how useful tailwind is XD.{" "}
-        <EncryptedText text="Honestly this shit is so cool." />
-      </p>
-    </div>
-  );
-}
+
 
