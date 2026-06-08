@@ -4,7 +4,6 @@ import { useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import {codeExamples} from "../data/CodeExamples";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { floatingCards } from "../data/CodeExamples";
 import { CanvasTextEffect } from "../ui_block/TextEffect"
 import { EncryptedTextIntro } from "../ui_block/TextEffect"
 
@@ -27,10 +26,9 @@ export default function Hero() {
   
   
 
-const currentFloatingCard = floatingCards[activeTab];
 
   return(
-      <section className="relative min-h-screen flex items-center justify-center pt-16 sm:pt-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section id="hero" className="relative min-h-screen flex items-center justify-center pt-16 sm:pt-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
     
         <div className="max-w-7xl mx-auto text-center relative w-full">
           
@@ -39,8 +37,8 @@ const currentFloatingCard = floatingCards[activeTab];
             <div>
               
               <h1 className="text-5xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 animate-in slide-in-from-bottom duration-700 delay-100 leading-tight">
-                <span className="text-white">
-                  My Name is 
+                <span className="text-white font-medium">
+                  //Hello world
                 </span>
                 <span>
                   <CanvasTextEffect/>
@@ -58,8 +56,8 @@ const currentFloatingCard = floatingCards[activeTab];
 
           {/*This is the card that has the coding effect card*/}
         <div className="relative order-2 w-full">
-          <div className="relative bg-white/5 backdrop-blur-xl rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-2xl border border-white/10">
-            <div className="bg-gradient-to-br from-gray-900/20 to-gray-800/20 backdrop-blur-sm rounded-lg overflow-hidden min-h-[290px] sm:min-h-[350px] lg:min-h-[460px] border border-white/5">
+          <div className="relative bg-white/5 backdrop-blur-xl rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-2xl border border-white/10 ">
+            <div className="bg-gradient-to-br from-gray-900/20 to-gray-800/20 backdrop-blur-sm rounded-lg overflow-hidden min-h-[290px] sm:min-h-[350px] lg:min-h-[460px] border border-white/5 ">
               {/* IDE HEADER*/}
               <div className="flex items-center justify-between px-3 sm:px-4 py-2 sm:py-3 bg-white/5 backdrop-blur border-b border-white/10">
                 <div className="flex items-center sm:space-x-2">
@@ -77,14 +75,14 @@ const currentFloatingCard = floatingCards[activeTab];
                  
                  <div className="p-3 sm:p-4 relative h-full">
                         {/*File tabs*/}
-                  <div className="flex space-x-1 sm:space-x-2 mb-3 sm:mb-4 overflow-x-auto">
+                  <div className="flex space-x-1 sm:space-x-2 mb-3 sm:mb-4 overflow-x-auto ">
                     <button 
                     onClick={() => setActiveTab("README.md")}
                     className={`px-3 py-2 backdrop-blur-sm text-xs sm:text-sm rounded-t-lg border ${
                       activeTab == "README.md" 
                       ? "bg-blue-500/30 text-white border-blue-400/20"
                        : "bg-white/5 text-gray-300 border-white/10 hover:bg-white/10" }
-                         transition-all duration-200 whitespace-nowrap`}>
+                         transition-all duration-200 whitespace-nowrap `}>
                     README.md
                     </button>
                     <button 
@@ -107,7 +105,7 @@ const currentFloatingCard = floatingCards[activeTab];
                     </button>
                   </div>
                   {/*The Code Content*/}
-                  <div className="relative overflow-hidden flex-grow">
+                  <div className="relative overflow-hidden flex-grow ">
                       <SyntaxHighlighter 
                       language={getLanguageForTab(activeTab)} 
                       style={nightOwl} 
@@ -127,30 +125,6 @@ const currentFloatingCard = floatingCards[activeTab];
                   </div>
                 </div>
               </div>
-              {/*Floating Cards */}
-
-              <div 
-              className = {`hidden lg:block absolute bottom-4 right-4 transform translate-x-8 translate-y-8 w-35 ${floatingCards[activeTab].bgColor} backdrop-blur-xl rounded-lg p-4 border border-white/20 shadow-2xl`}
-              >
-                <div className="flex items-center space-x-2 mb-2">
-                  <div className={`w-4 h-4 ${currentFloatingCard.iconColor} flex items-center justify-center text-sm font-bold`}
-                  >
-                    {currentFloatingCard.icon}
-                  </div>
-                  
-                  <span className=
-                  {`text-sm font-medium ${currentFloatingCard.textColor}`}>
-                    {currentFloatingCard.title}
-                    </span>
-                </div>
-                
-                <div>
-                  <span 
-                  className={`text-sm text-left ${currentFloatingCard.contentColor}`}>
-                    {currentFloatingCard.content}
-                    </span>
-                </div>
-              </div> 
 
             </div>
           </div>

@@ -5,14 +5,14 @@ import { useState } from "react";
 export default function NavBar() {
     const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
     return (
-    <nav className="fixed top-0 w-full z-50 transition-all duration-300 bg-zinc-950/20 backdrop-blur-sm border-b border-white/5 px-4">
+    <nav className="fixed top-5 left-1/2 -translate-x-1/2 w-[90%] ax-w-5xl z-50 transition-all duration-300 bg-zinc-950/20 backdrop-blur-sm border-b rounded-xl border-white/10 px-4">
         <div className="max-w7-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
             <div className="flex items-center justify-between h-14 sm:h-16 md:h-20">
                 <div className="flex items-center space-x-1 group cursor-pointer">
                      
                     <span className="text-xl sm:text-xl font-medium">
                         <span className="bg-gradient-to-br from-zinc-100 via-zinc-400 to-zinc-100 bg-clip-text text-transparent font-bold">Xeazhar</span>
-                        <span className="text-white">Code</span>
+                        
                     </span>
                 </div>
 
