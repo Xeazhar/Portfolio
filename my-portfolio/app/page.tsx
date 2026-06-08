@@ -5,11 +5,13 @@ import Projects from "../components/Projects";
 import Skills from "../components/Skills";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
+import { FloatingDockUI } from "../ui_block/FloatingDock"
 
 export default function Home() {
   return (
     
-    <div className="min-h-screen bg-slate-950 text-white overflow-hidden">
+    <div className="min-h-screen text-white overflow-hidden">
+    
      <NavBar />
       <Hero />
           {/* <Projects />
@@ -17,8 +19,9 @@ export default function Home() {
           <Contact />
           <Footer /> */}
         
-      
-        </div>
+      <FloatingDockUI/>
+    
+    </div>
   
   );
 }

@@ -1,18 +1,11 @@
-
-
 export const codeExamples = {
     "README.md":`$ whoami
 > Xeahzar
 
 $ cat profile.md
-> AI enthusiast
-> data-driven thinker
-> future AI engineer
-
-$ ls projects/
-> road-damage-detection
-> computer-vision
-> machine-learning
+> Full stack Developer
+> AI Engineer
+> Data Analyst
 
 $ echo $MOTTO
 > innovate. analyze. improve.
@@ -22,7 +15,7 @@ $ echo $STATUS
     `,
 
     "Skills.js":`const xeahzar = {
-  role: "Aspiring AI Engineer",
+  role: "Full Stack Developer",
 
   interests: [
     "Artificial Intelligence",
@@ -38,31 +31,17 @@ $ echo $STATUS
     "SQL",
     "Git",
   ],
-
-  currentlyLearning: [
-    "LLMs",
-    "AI Agents",
-    "Advanced Analytics",
-  ],
-};
-
-export default xeahzar;
-
-$ cat currently_learning.txt
-> llms
-> ai agents
-> advanced analytics
-    `,
+}; `,
 
     "Config.json": `{
   "name": "Xeahzar",
   "version": "2026.1",
   "mode": "learning",
-  "specialization": "AI Engineering",
-  "interests": [
-    "Computer Vision",
-    "Machine Learning",
-    "Data Analytics"
+  "Location": "Philippines",
+  "Contact": [
+    "jazpera.bustria@gmail.com",
+    "linkedin.com/in/jazper-bustria/",
+    "https://github.com/Xeazhar"
   ],
   "currentlyBuilding": true,
   "openToOpportunities": true

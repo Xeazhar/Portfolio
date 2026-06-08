@@ -5,44 +5,38 @@ import { useState } from "react";
 export default function NavBar() {
     const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
     return (
-    <nav className="fixed top-0 w-full z-50 transition-all duration-300 bg-slate-950/20 backdrop-blur-sm">
-        <div className="max-w7-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="fixed top-0 w-full z-50 transition-all duration-300 bg-zinc-950/20 backdrop-blur-sm border-b border-white/5 px-4">
+        <div className="max-w7-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
             <div className="flex items-center justify-between h-14 sm:h-16 md:h-20">
                 <div className="flex items-center space-x-1 group cursor-pointer">
-                     <div>
-                        <img 
-                        src="/favicon.ico" 
-                        alt="Logo" 
-                        className="h-6 w-6 sm:w-8 sm:h-8" 
-                        /> 
-
-                    </div>
-                    <span className="text-lg sm:text-xl font-medium">
-                        <span className="text-white">Xeazhar</span>
-                        <span className="text-blue-400">Portfolio</span>
+                     
+                    <span className="text-xl sm:text-xl font-medium">
+                        <span className="bg-gradient-to-br from-zinc-100 via-zinc-400 to-zinc-100 bg-clip-text text-transparent font-bold">Xeazhar</span>
+                        <span className="text-white">Code</span>
                     </span>
                 </div>
 
                 {/* Navigation Links */}
-                    <div className="hidden md:flex items-center space-x-6 lg:space-x-8" > 
+                    <div className="hidden " >   {/*md:flex items-center space-x-6 lg:space-x-8*/}
+                      
                         <a 
                         href="#techStack" 
                         className="text-gray-300 hover:text-white text-sm lg:text-base"
                         >
-                            Tech Stack
+                            About
                         </a>
                         <a 
                         href="#experience" 
                         className="text-gray-300 hover:text-white text-sm lg:text-base"
                         >
-                            Experience
+                            Projects
                         </a>
 
                         <a 
                         href="#projects" 
                         className="text-gray-300 hover:text-white text-sm lg:text-base"
                         >
-                            Projects
+                            Experience
                         </a>
                         <a 
                         href="#contact" 
@@ -51,6 +45,7 @@ export default function NavBar() {
                             Contact me
                         </a>
                     </div>
+                    
 
                 <button 
                     className="md:hidden p-2 text-gray-300 hover:text-white" 
@@ -65,10 +60,11 @@ export default function NavBar() {
 
             </div>
         </div>
+        
 
         {/* Mobile Menu */}
         {mobileMenuIsOpen && (
-            <div className="md:hidden bg-slate-950/20 backdrop-blur-large border-t border-slate-800 animate-in slide-in-from-top duration-300"> 
+            <div className="md:hidden bg-zinc-950/20 backdrop-blur-large border-t border-slate-800 animate-in slide-in-from-top duration-300"> 
                 <div className="px-4 py-4 sm:py-6 space-y-3 sm:space-y-4">
                         <a 
                         href="#techStack" 
