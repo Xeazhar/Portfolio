@@ -52,7 +52,7 @@ export default function CustomCursor() {
           width: 8,
           height: 8,
           background: "white",
-          borderRadius: "50%",
+          borderRadius: "0%",
           transform: "translate3d(0px, 0px, 0) translate(-50%, -50%)",
           pointerEvents: "none",
           zIndex: 9999,

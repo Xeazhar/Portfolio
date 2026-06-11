@@ -5,10 +5,10 @@ import React from "react";
 
 export function CanvasTextEffect() {
   return (
-    <div className="flex items-center justify-center animate-in slide-in-from-bottom duration-700 delay-100 transition-transform duration-200 hover:scale-110">
+    <div className="flex items-center justify-center animate-in slide-in-from-bottom duration-700 delay-100 transition-transform duration-200">
       <h2
         className={cn(
-          "group relative mx-auto max-w-2xl text-left text-4xl leading-tight font-bold tracking-tight text-balance text-neutral-600 sm:text-5xl md:text-6xl xl:text-7xl dark:text-neutral-700"
+          "relative w-full text-left text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-neutral-600 dark:text-neutral-700"
         )}>
         
         <CanvasText

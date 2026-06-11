@@ -3,25 +3,25 @@ import GradualBlur from '../components/ui/GradualBlur';
 
 export function FaultyTerminalBG() {
   return (
-    <div style={{ width: '100%', height: '100%', position: 'relative' }}>
+<div style={{ width: '100%', height: '100%', position: 'relative' }}>
   <FaultyTerminal
-    scale={1.3}
+    scale={3}
     gridMul={[2, 1]}
-    digitSize={1.8}
+    digitSize={2.2}
     timeScale={0.5}
     pause={false}
     scanlineIntensity={0.5}
     glitchAmount={1}
     flickerAmount={1}
-    noiseAmp={1}
+    noiseAmp={0.7}
     chromaticAberration={0}
     dither={0}
-    curvature={0.32}
-    tint="#cad4ed"
+    curvature={0.1}
+    tint="#f0f0f0"
     mouseReact
-    mouseStrength={0.9}
+    mouseStrength={0.5}
     pageLoadAnimation
-    brightness={0.1}
+    brightness={0.4}
   />
 </div>
   );
