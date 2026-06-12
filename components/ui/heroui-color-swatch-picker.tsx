@@ -99,7 +99,7 @@ function ColorSwatchPicker({
   value?: string | ColorValue;
   defaultValue?: string | ColorValue;
   onChange?: (value: ColorValue) => void;
-  render?: (props: React.HTMLAttributes<HTMLDivElement>) => React.ReactElement;
+  render?: (props: React.ComponentProps<"div">) => React.ReactElement;
 }) {
   const [uncontrolledValue, setUncontrolledValue] = React.useState(() => colorToString(defaultValue));
   const selected = value !== undefined ? colorToString(value) : uncontrolledValue;
@@ -128,23 +128,29 @@ function ColorSwatchPicker({
     setSelected(next.color);
   }, [setSelected]);
 
-  const baseProps: React.HTMLAttributes<HTMLDivElement> = {
-    ...props,
-    role: "radiogroup",
-    "data-slot": "color-swatch-picker",
-    className: cn(
-      "color-swatch-picker",
-      `color-swatch-picker--${layout}`,
-      `color-swatch-picker--${size}`,
-      `color-swatch-picker--${variant}`,
-      className,
-    ),
-  };
+  const pickerClassName = cn(
+    "color-swatch-picker",
+    `color-swatch-picker--${layout}`,
+    `color-swatch-picker--${size}`,
+    `color-swatch-picker--${variant}`,
+    className,
+  );
 
   return (
     <PickerContext.Provider value={{selected, setSelected, register, focusByOffset, variant}}>
       <ColorSwatchPickerStyles />
-      {render ? render(baseProps) : <div {...baseProps}>{children}</div>}
+      {render ? (
+        render({
+          ...props,
+          role: "radiogroup",
+          className: pickerClassName,
+          "data-slot": "color-swatch-picker",
+        } as React.ComponentProps<"div">)
+      ) : (
+        <div {...props} role="radiogroup" data-slot="color-swatch-picker" className={pickerClassName}>
+          {children}
+        </div>
+      )}
     </PickerContext.Provider>
   );
 }
@@ -158,9 +164,12 @@ function ColorSwatchPickerItem({
   onBlur,
   onKeyDown,
   ...props
-}: Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "color"> & {
+}: Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "color" | "children"> & {
   color: string | ColorValue;
   isDisabled?: boolean;
+  children?:
+    | React.ReactNode
+    | ((props: { color: ColorValue; isSelected: boolean }) => React.ReactNode);
 }) {
   const context = React.useContext(PickerContext);
   if (!context) throw new Error("ColorSwatchPicker.Item must be used inside ColorSwatchPicker");
