@@ -1,42 +1,42 @@
 const projects = [
   {
     id: "project-1",
-    title: "Customer Attrition Predictor",
+    title: "Cloud-Based Road Damage Detection System",
     description:
-      "A machine learning application that predicts customer attrition using historical behavioral and transaction data. Identifies high-risk customers and generates retention insights.",
-    tech: ["React", "Node.js", "AWS", "Docker"],
-    link: "#",
+      "a cloud-based road damage detection system for detecting potholes, cracks, alligator cracks, and ravelling in Philippine road images",
+    tech: ["Python", "RT-DETRv2", "AWS", "AI Vision Models"],
+    link: "https://github.com/cliaveR/RT-DETRV2-MOBILE",
   },
   {
     id: "project-2",
-    title: "AI Recruitment Assistant",
+    title: "Philippine Road Damage Classification",
     description:
-      "An AI-assisted recruitment solution that analyzes resumes, extracts qualifications, and matches candidates to job requirements.",
-    tech: ["React", "Node.js", "Python", "Docker"],
-    link: "#",
+      "a YOLOv11-based road damage classification model using locally sourced Philippine road damage datasets",
+    tech: ["Python", "YOLOv11", "PyTorch", "AI Vision Models"],
+    link: "https://github.com/Xeazhar/ImageDetection-Yolov11",
   },
   {
     id: "project-3",
-    title: "Traffic Analytics Dashboard",
+    title: "Abstractive Text Summarization",
     description:
-      "A data analytics platform that processes multi-source traffic data to visualize congestion trends and peak travel times.",
-    tech: ["React", "Postgres", "D3"],
+      "Trained and evaluated a multilingual abstractive summarization model using Tagalog and Cebuano movie review datasets. Processed 50,000+ text records for model training, preprocessing, and evaluation.",
+    tech: ["Python", "Hugging Face", "Transformers", "AI Text Summarization"],
     link: "#",
   },
   {
     id: "project-4",
-    title: "Road Inspection with YOLO",
+    title: "Transportation Network Anomaly Analysis",
     description:
-      "An AI-powered road inspection system that detects and classifies road damage from images using YOLO.",
-    tech: ["Python", "YOLO", "AWS"],
-    link: "#",
+      "Analyzed 300,000+ transportation records to detect anomalies and uncover movement patterns.",
+    tech: ["Python", "Pandas", "Matplotlib", "Seaborn", "Data Visualization", "Data Analysis"],
+    link: "https://github.com/Xeazhar/Last-Mile-Delivery-Performance-Analytics-Dashboard/tree/main",
   },
     {
     id: "project-5",
-    title: "Sample 101",
+    title: "Last-Mile Delivery Performance Analytics Dashboard",
     description:
-      "Sample 101",
-    tech: ["Python", "YOLO", "AWS"],
+      "Built a Power BI dashboard analyzing 331,415 last-mile delivery records to evaluate delivery time, courier productivity, regional performance, and delay patterns.",
+    tech: ["Power BI", "Data Visualization", "Data Analysis"],
     link: "#",
   },
 ];

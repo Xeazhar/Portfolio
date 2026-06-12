@@ -94,7 +94,7 @@ const KEY_SOUNDS_UP: Record<string, [number, number]> = {
   Enter: [19180, 100],
 };
 
-function useAudio(enabled: boolean) {
+function useAudio(enabled: boolean, volume: number = 1) {
   const ctxRef = useRef<AudioContext | null>(null);
   const bufferRef = useRef<AudioBuffer | null>(null);
   const readyRef = useRef(false);
@@ -119,12 +119,17 @@ function useAudio(enabled: boolean) {
   }, [enabled]);
 
   const playSound = (sound: [number, number] | undefined) => {
-    if (!readyRef.current || !ctxRef.current || !bufferRef.current || !sound)
-      return;
+    if (!readyRef.current || !ctxRef.current || !bufferRef.current || !sound) return;
     if (ctxRef.current.state === "suspended") ctxRef.current.resume();
+
     const src = ctxRef.current.createBufferSource();
     src.buffer = bufferRef.current;
-    src.connect(ctxRef.current.destination);
+
+    const gain = ctxRef.current.createGain();  // add this
+    gain.gain.value = volume;                   // add this
+
+    src.connect(gain);                          // changed
+    gain.connect(ctxRef.current.destination);   // changed
     src.start(0, sound[0] / 1000, sound[1] / 1000);
   };
 
@@ -284,6 +289,8 @@ export interface TerminalProps {
   delayBetweenCommands?: number;
   initialDelay?: number;
   enableSound?: boolean;
+  soundVolume?: number;
+  onComplete?: () => void;
 }
 
 export function Terminal({
@@ -295,11 +302,14 @@ export function Terminal({
   delayBetweenCommands = 800,
   initialDelay = 500,
   enableSound = true,
+  onComplete,
+  soundVolume = 1,
+
 }: TerminalProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const inView = useInView(containerRef);
-  const { down, up } = useAudio(enableSound);
+  const { down, up } = useAudio(enableSound, soundVolume);
 
   const [lines, setLines] = useState<TerminalLine[]>([]);
   const [currentText, setCurrentText] = useState("");
@@ -317,6 +327,12 @@ export function Terminal({
     [outputs, commandIdx],
   );
   const isLastCommand = commandIdx === commands.length - 1;
+ 
+  useEffect(() => {
+    if (phase === "done") {
+      onComplete?.();
+    }
+  }, [phase, onComplete]);
 
   useEffect(() => {
     if (!inView || phase !== "idle") return;
@@ -413,7 +429,7 @@ export function Terminal({
 
   const prompt = (
     <span className="text-neutral-500">
-      <span className="text-sky-500">{username}</span>
+      <span className="text-[var(--accent)]">{username}</span>
       <span className="text-emerald-600">:</span>
       <span className="text-sky-400">~</span>
       <span className="text-neutral-500">$</span>{" "}
@@ -428,9 +444,9 @@ export function Terminal({
         className,
       )}
     >
-      <div className="overflow-hidden rounded-lg border border-neutral-800 bg-neutral-900 shadow-2xl">
+      <div className="overflow-hidden rounded-lg border border-neutral-800 bg-white/5 backdrop-blur-xl">
         {/* Title Bar */}
-        <div className="flex items-center gap-2 bg-neutral-800 px-4 py-3">
+        <div className="flex items-center gap-2 bg-neutral-850  backdrop-blur-xl shadow-2xl px-4 py-3">
           <div className="flex items-center gap-1.5">
             <div className="h-3 w-3 rounded-full bg-red-500 transition-colors hover:bg-red-600" />
             <div className="h-3 w-3 rounded-full bg-yellow-500 transition-colors hover:bg-yellow-600" />
@@ -438,7 +454,7 @@ export function Terminal({
           </div>
           <div className="flex-1 text-center">
             <span className="truncate text-xs text-neutral-400">
-              {username} — bash
+              <span className="text-[var(--accent)]">{username}</span> — bash
             </span>
           </div>
           <div className="w-[52px]" />
