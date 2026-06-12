@@ -4,12 +4,12 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 export const socialLinks = [
   {
     name: "Email",
-    href: "mailto:you@example.com",
+    href: "mailto:jazper.bustria@gmail.com",
     icon: Mail,
   },
   {
     name: "GitHub",
-    href: "https://github.com/yourusername",
+    href: "https://github.com/Xeazhar",
     icon: FaGithub,
   },
   {
