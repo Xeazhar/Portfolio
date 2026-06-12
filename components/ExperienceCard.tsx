@@ -5,7 +5,7 @@ type Experience = {
   title: string;
   description: string;
   tech: string[];
-  year: string[];
+  year: string;
 };
 
 export default function ExperienceCard({ experience }: { experience: Experience }) {

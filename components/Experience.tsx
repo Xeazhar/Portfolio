@@ -4,7 +4,7 @@ import ExperienceCard from "./ExperienceCard";
 export default function Experience() {
   return (
     
-      <div className="max-h-[400px] overflow-y-auto pr-1">
+      <div className="h-[280px] sm:h-[400px] overflow-y-auto min-h-0 pr-1 hide-scrollbar">
                
         <div className="grid grid-cols-1 gap-6">
           {experience.map((e) => (

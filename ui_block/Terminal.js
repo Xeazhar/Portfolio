@@ -3,8 +3,9 @@ import { Terminal } from "@/components/ui/terminal";
 
 export function TerminalDemo() {
   return (
-    <section className="w-full py-2">
+    <section className="w-full">
       <Terminal
+        className="max-w-full"
         commands={[
           "whoami",
           "cat profile.md",

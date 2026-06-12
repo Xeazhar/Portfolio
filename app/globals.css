@@ -7,10 +7,12 @@
 :root {
   --background: #ffffff00;
   --foreground: #ededed;
+  --radius: 0.625rem;
 }
 
 /* Map semantic variables into :root so PostCSS/Tailwind won't error on unknown at-rules */
 @theme inline {
+  --radius: 0.625rem;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
